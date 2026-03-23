@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Solving Hub</title>
-  <meta name="description" content="Problem-solving tools, sessions, and strategy — for individuals and organizations.">
+  <meta name="description" content="Problem-solving tools, sessions, and strategy — for individuals navigating complexity.">
   <style>
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Light.woff2') format('woff2'), url('fonts/HKGrotesk-Light.woff') format('woff'); font-weight: 300; font-display: swap; }
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Regular.woff2') format('woff2'), url('fonts/HKGrotesk-Regular.woff') format('woff'); font-weight: 400; font-display: swap; }
@@ -16,32 +16,28 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --purple:   #5E17EB;
-      --blue:     #3533CD;
-      --ink:      #0D0D0D;
-      --muted:    #6B6F80;
-      --light:    #F5F4FF;
-      --bg:       #FAFAFA;
-      --white:    #FFFFFF;
-      --border:   #E8E7F0;
-      --grad:     linear-gradient(135deg, #5E17EB 0%, #3533CD 100%);
+      --purple: #5E17EB;
+      --blue:   #3533CD;
+      --ink:    #0D0D0D;
+      --muted:  #6B6F80;
+      --light:  #F5F4FF;
+      --bg:     #FAFAFA;
+      --white:  #FFFFFF;
+      --border: #E8E7F0;
+      --grad:   linear-gradient(135deg, #5E17EB 0%, #3533CD 100%);
     }
 
     body.es .en { display: none; }
     body.en .es { display: none; }
-
     html { scroll-behavior: smooth; }
     body {
       font-family: 'HK Grotesk', sans-serif;
-      font-weight: 400;
-      color: var(--ink);
-      background: var(--white);
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      font-weight: 400; color: var(--ink);
+      background: var(--white); font-size: 16px;
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
@@ -50,17 +46,10 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-size: 1rem; font-weight: 700; color: var(--ink);
-      text-decoration: none; letter-spacing: -0.01em;
-    }
+    .nav-logo { font-size: 1rem; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
     .nav-logo span { color: var(--purple); }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: 0.85rem; font-weight: 500;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--purple); }
     .lang-toggle {
       background: none; border: 1.5px solid var(--border);
@@ -70,34 +59,27 @@
     }
     .lang-toggle:hover { border-color: var(--purple); color: var(--purple); }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       background: var(--ink);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      padding: 120px 6vw 80px;
-      gap: 64px;
-      position: relative;
-      overflow: hidden;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 140px 6vw 100px;
+      position: relative; overflow: hidden;
     }
     #hero::before {
-      content: '';
-      position: absolute;
-      top: -200px; right: -200px;
+      content: ''; position: absolute; top: -200px; right: -200px;
       width: 700px; height: 700px;
       background: radial-gradient(circle, rgba(94,23,235,0.25) 0%, transparent 65%);
       pointer-events: none;
     }
     #hero::after {
-      content: '';
-      position: absolute;
-      bottom: -100px; left: 30%;
+      content: ''; position: absolute; bottom: -100px; left: 30%;
       width: 400px; height: 400px;
       background: radial-gradient(circle, rgba(53,51,205,0.15) 0%, transparent 65%);
       pointer-events: none;
     }
+    .hero-inner { max-width: 700px; position: relative; z-index: 1; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(94,23,235,0.15); border: 1px solid rgba(94,23,235,0.3);
@@ -105,10 +87,7 @@
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
       text-transform: uppercase; color: #A78BFA;
     }
-    .hero-badge::before {
-      content: ''; display: block; width: 6px; height: 6px;
-      border-radius: 50%; background: #A78BFA;
-    }
+    .hero-badge::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: #A78BFA; }
     h1 {
       font-size: clamp(2.4rem, 4.5vw, 4.2rem);
       font-weight: 700; color: #fff; line-height: 1.1;
@@ -116,14 +95,13 @@
     }
     h1 .accent {
       background: var(--grad);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-sub {
       font-size: 1.05rem; color: rgba(255,255,255,0.5);
-      max-width: 460px; line-height: 1.8; margin-bottom: 44px; font-weight: 300;
+      max-width: 500px; line-height: 1.8; margin-bottom: 40px; font-weight: 300;
     }
-    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-ctas { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
     .btn-primary {
       display: inline-block; background: var(--grad); color: #fff;
       padding: 13px 28px; text-decoration: none; border: none; cursor: pointer;
@@ -132,40 +110,22 @@
       font-family: 'HK Grotesk', sans-serif;
     }
     .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-    .btn-ghost {
-      display: inline-block; border: 1.5px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.6); padding: 13px 28px; text-decoration: none;
+    .btn-secondary {
+      display: inline-block; border: 1.5px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7); padding: 13px 28px; text-decoration: none;
       font-size: 0.88rem; font-weight: 500; border-radius: 8px; transition: all 0.2s;
+      cursor: pointer; background: transparent; font-family: 'HK Grotesk', sans-serif;
     }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .hero-newsletter {
+      font-size: 0.83rem; color: rgba(255,255,255,0.35);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .hero-newsletter:hover { color: rgba(255,255,255,0.7); }
+    .hero-newsletter svg { opacity: 0.5; }
 
-    .hero-right { position: relative; z-index: 1; }
-    .audience-cards { display: flex; flex-direction: column; gap: 12px; }
-    .audience-card {
-      padding: 24px 28px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px; text-decoration: none;
-      transition: background 0.2s, border-color 0.2s;
-      display: block;
-    }
-    .audience-card:hover {
-      background: rgba(94,23,235,0.12);
-      border-color: rgba(94,23,235,0.35);
-    }
-    .aud-label {
-      font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
-      font-weight: 700; margin-bottom: 8px;
-    }
-    .audience-card.b2c .aud-label { color: #A78BFA; }
-    .audience-card.b2b .aud-label { color: #818CF8; }
-    .audience-card h3 {
-      font-size: 1rem; font-weight: 600; color: #fff;
-      line-height: 1.3; margin-bottom: 6px;
-    }
-    .audience-card p { font-size: 0.83rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
-
-    /* ── SECTION BASE ── */
+    /* SECTION BASE */
     section { padding: 96px 6vw; }
     .section-label {
       font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -180,9 +140,8 @@
       margin-bottom: 56px; line-height: 1.75; font-weight: 300;
     }
 
-    /* ── INDIVIDUALS / B2C ── */
+    /* PRODUCTS */
     #individuals { background: var(--bg); }
-
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -201,133 +160,60 @@
       border-color: rgba(94,23,235,0.3);
     }
     .product-thumb {
-      height: 150px;
+      height: 150px; background: var(--grad);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em;
       color: #fff; position: relative; overflow: hidden;
     }
-    .product-thumb.grad-main { background: var(--grad); }
-    .product-thumb.grad-soft { background: linear-gradient(135deg, #EEE9FF 0%, #E0DFFF 100%); color: var(--purple); }
-    .product-thumb.grad-dark { background: linear-gradient(135deg, #1A1A2E 0%, #3533CD 100%); }
-    .product-thumb.grad-teal { background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%); color: #3533CD; }
-    .product-thumb.grad-tip  { background: linear-gradient(135deg, #F5F4FF 0%, #EDE9FF 100%); color: var(--purple); font-size: 2rem; }
     .product-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
     .product-type {
       font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--purple); margin-bottom: 8px; font-weight: 700;
     }
-    .product-card h3 {
-      font-size: 1.05rem; font-weight: 700; line-height: 1.25; margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
+    .product-card h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.25; margin-bottom: 8px; letter-spacing: -0.01em; }
     .product-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; flex: 1; font-weight: 300; }
     .product-footer {
       display: flex; align-items: center; justify-content: space-between;
       margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border);
     }
     .product-price { font-size: 1.05rem; font-weight: 700; color: var(--ink); }
-    .product-cta {
-      font-size: 0.78rem; font-weight: 700; color: var(--purple);
-      letter-spacing: 0.04em;
-    }
+    .product-cta { font-size: 0.78rem; font-weight: 700; color: var(--purple); letter-spacing: 0.04em; }
     .badge-featured {
-      display: inline-block;
-      background: var(--grad); color: #fff;
+      display: inline-block; background: var(--grad); color: #fff;
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
-      margin-bottom: 10px;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
     }
 
-    /* ── ORGANIZATIONS / B2B ── */
-    #organizations { background: var(--white); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .service-card {
-      padding: 32px 28px;
-      border: 1.5px solid var(--border); border-radius: 14px;
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .service-card:hover {
-      border-color: rgba(94,23,235,0.3);
-      box-shadow: 0 8px 32px rgba(94,23,235,0.08);
-    }
-    .service-num {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-      color: var(--purple); opacity: 0.4; display: block; margin-bottom: 16px;
-    }
-    .service-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--light); display: flex; align-items: center;
-      justify-content: center; margin-bottom: 16px; font-size: 1.1rem;
-    }
-    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .service-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
-    .service-tag {
-      display: inline-block; margin-top: 16px;
-      font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--purple); font-weight: 700;
-      background: var(--light); padding: 3px 10px; border-radius: 20px;
-    }
-
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about { background: var(--bg); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-visual {
-      background: var(--ink); border-radius: 20px;
-      aspect-ratio: 4/5; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 36px; position: relative; overflow: hidden;
+    .about-photo {
+      border-radius: 20px; overflow: hidden;
+      aspect-ratio: 4/5;
     }
-    .about-visual::before {
-      content: ''; position: absolute; top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(94,23,235,0.3) 0%, transparent 60%);
-    }
-    .about-visual::after {
-      content: ''; position: absolute; bottom: -50px; left: -50px;
-      width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(53,51,205,0.2) 0%, transparent 60%);
-    }
-    .about-quote {
-      font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 300;
-      color: rgba(255,255,255,0.6); line-height: 1.5;
-      position: relative; z-index: 1;
-    }
-    .about-quote strong { color: #fff; font-weight: 700; }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
     #about .section-label { color: var(--purple); }
+    #about h2 { margin-bottom: 24px; }
     #about p { font-size: 0.95rem; color: #4A4E5C; line-height: 1.85; margin-bottom: 16px; font-weight: 300; }
     #about p strong { color: var(--ink); font-weight: 600; }
-    .about-links { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
-    .about-link {
-      font-size: 0.82rem; font-weight: 600; color: var(--purple);
-      text-decoration: none; padding: 7px 16px;
-      border: 1.5px solid rgba(94,23,235,0.25); border-radius: 20px;
-      transition: all 0.2s;
-    }
-    .about-link:hover { background: var(--light); border-color: var(--purple); }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     #contact { background: var(--white); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
     .contact-info p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 12px; font-weight: 300; }
-
     form { display: flex; flex-direction: column; gap: 16px; }
     .field label {
       display: block; font-size: 0.75rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--muted); margin-bottom: 7px; font-weight: 600;
     }
-    .field input, .field select, .field textarea {
+    .field input, .field textarea {
       width: 100%; background: var(--bg);
       border: 1.5px solid var(--border); border-radius: 8px;
       padding: 12px 15px; color: var(--ink);
       font-family: 'HK Grotesk', sans-serif; font-size: 0.93rem; font-weight: 400;
-      outline: none; transition: border-color 0.2s; appearance: none;
+      outline: none; transition: border-color 0.2s;
     }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--purple); background: #fff; }
+    .field input:focus, .field textarea:focus { border-color: var(--purple); background: #fff; }
     .field textarea { min-height: 110px; resize: vertical; }
     .btn-submit {
       align-self: flex-start; background: var(--grad); color: #fff; border: none;
@@ -337,7 +223,7 @@
     }
     .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
 
-    /* ── PAYMENT MODAL ── */
+    /* PAYMENT MODAL */
     .modal-overlay {
       display: none; position: fixed; inset: 0; z-index: 200;
       background: rgba(13,13,13,0.65); backdrop-filter: blur(6px);
@@ -346,8 +232,7 @@
     .modal-overlay.open { display: flex; }
     .modal {
       background: var(--white); border-radius: 16px;
-      width: 100%; max-width: 420px;
-      padding: 32px; position: relative;
+      width: 100%; max-width: 420px; padding: 32px; position: relative;
       border: 1.5px solid var(--border);
       box-shadow: 0 24px 80px rgba(0,0,0,0.18);
     }
@@ -359,21 +244,10 @@
       transition: background 0.2s;
     }
     .modal-close:hover { background: var(--border); color: var(--ink); }
-    .modal-product {
-      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--purple); font-weight: 700; margin-bottom: 6px;
-    }
-    .modal h3 {
-      font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em;
-    }
-    .modal-price {
-      font-size: 1.6rem; font-weight: 700; color: var(--ink);
-      margin-bottom: 24px; letter-spacing: -0.02em;
-    }
-    .modal-divider {
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); font-weight: 600; margin-bottom: 12px;
-    }
+    .modal-product { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); font-weight: 700; margin-bottom: 6px; }
+    .modal h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.01em; }
+    .modal-price { font-size: 1.6rem; font-weight: 700; color: var(--ink); margin-bottom: 24px; letter-spacing: -0.02em; }
+    .modal-divider { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
     .pay-options { display: flex; flex-direction: column; gap: 8px; }
     .pay-btn {
       display: flex; align-items: center; gap: 12px;
@@ -383,36 +257,33 @@
       background: var(--white); cursor: pointer;
       transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
     }
-    .pay-btn:hover {
-      border-color: var(--purple);
-      background: var(--light);
-      box-shadow: 0 2px 12px rgba(94,23,235,0.1);
-    }
+    .pay-btn:hover { border-color: var(--purple); background: var(--light); box-shadow: 0 2px 12px rgba(94,23,235,0.1); }
     .pay-icon {
       width: 38px; height: 26px; border-radius: 5px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.03em;
-      flex-shrink: 0;
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.03em; flex-shrink: 0;
     }
     .pay-desc { font-size: 0.76rem; color: var(--muted); margin-left: auto; font-weight: 400; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: var(--ink); padding: 28px 6vw;
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
+      flex-wrap: wrap; gap: 16px;
     }
-    footer p, footer a { font-size: 0.8rem; color: rgba(255,255,255,0.25); text-decoration: none; }
-    footer a:hover { color: rgba(255,255,255,0.6); }
-    .footer-links { display: flex; gap: 24px; }
+    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+    .footer-links { display: flex; gap: 20px; align-items: center; }
+    .footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
+    .footer-links a:hover { color: #fff; }
+    .footer-email { font-size: 0.8rem; color: rgba(255,255,255,0.35) !important; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 820px) {
       nav { padding: 14px 5vw; }
       .nav-links { display: none; }
-      #hero { grid-template-columns: 1fr; padding: 110px 5vw 64px; gap: 40px; }
+      #hero { padding: 110px 5vw 64px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .about-visual { aspect-ratio: 3/2; }
+      .about-photo { aspect-ratio: 3/2; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       section { padding: 64px 5vw; }
     }
@@ -435,43 +306,44 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div>
+    <div class="hero-inner">
       <div class="hero-badge">The Solving Hub</div>
       <h1>
-        <span class="en">There is always a way. <span class="accent"> Let's find yours!</span></span>
+        <span class="en">There is always a way. <span class="accent">Let's find yours!</span></span>
         <span class="es">Siempre hay un camino. <span class="accent">¡Encontremos el tuyo!</span></span>
       </h1>
       <p class="hero-sub">
         <span class="en">Tools for people who keep circling the same decision without moving forward.</span>
-        <span class="es">Herramientas para personas que llevan demasiado tiempo dando vueltas a la misma decisión sin avanzar</span>
+        <span class="es">Herramientas para personas que llevan demasiado tiempo dando vueltas a la misma decisión sin avanzar.</span>
       </p>
       <div class="hero-ctas">
         <a href="#individuals" class="btn-primary">
           <span class="en">Explore tools</span>
           <span class="es">Ver herramientas</span>
         </a>
+        <a href="#" onclick="event.preventDefault();openPayModal('session')" class="btn-secondary">
+          <span class="en">Coaching Session</span>
+          <span class="es">Sesión de coaching</span>
+        </a>
       </div>
-      
-     <a href="#" onclick="event.preventDefault();openPayModal('session')" class="btn-primary" style="background:transparent;border:1.5px solid rgba(255,255,255,0.25);">
-  <span class="en">Coaching Session</span>
-  <span class="es">Sesión de coaching</span>
-</a>
-      <a href="https://www.linkedin.com/newsletters/problem-solving-playbook-7241190119632744448/" target="_blank" style="font-size:0.82rem;color:rgba(255,255,255,0.4);text-decoration:none;align-self:center;">✉ <span class="en">Subscribe to the newsletter</span><span class="es">Suscríbete al newsletter</span></a>
-    </div>
-
+      <a href="https://www.linkedin.com/newsletters/problem-solving-playbook-7241190119632744448/" target="_blank" class="hero-newsletter">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,12 2,6"></polyline></svg>
+        <span class="en">Subscribe to the newsletter</span>
+        <span class="es">Suscríbete al newsletter</span>
+      </a>
     </div>
   </section>
 
-  <!-- B2C -->
+  <!-- TOOLS / B2C -->
   <section id="individuals">
     <h2><span class="en">Tools built for thinkers,<br>fixers & decision-makers.</span><span class="es">Herramientas para creadores,<br>ejecutores y tomadores de decisión.</span></h2>
-    <p class="section-sub"><span class="en">Whether you're stuck, in transition, or want sharper thinking, there's something here for you.</span><span class="es">Si te encuentras estancado, en una etapa de transición o simplemente quieres pensar con mayor claridad, aquí encontrarás algo que te puede ayudar.</span></p>
+    <p class="section-sub"><span class="en">Whether you're stuck, in transition, or want sharper thinking — there's something here for you.</span><span class="es">Si te encuentras estancado, en una etapa de transición o simplemente quieres pensar con mayor claridad, aquí encontrarás algo que te puede ayudar.</span></p>
 
     <div class="products-grid">
 
-      <!-- Clarity Compass Program -->
+      <!-- Clarity Compass -->
       <div class="product-card" onclick="openPayModal('clarity')">
-        <div class="product-thumb grad-main">
+        <div class="product-thumb">
           <span style="font-size:1.1rem;letter-spacing:-0.01em;padding:0 20px;text-align:center;line-height:1.2">Clarity<br>Compass</span>
         </div>
         <div class="product-body">
@@ -488,7 +360,9 @@
 
       <!-- 1:1 Session -->
       <div class="product-card" onclick="openPayModal('session')">
-        <div class="product-thumb grad-soft">1:1</div>
+        <div class="product-thumb">
+          <span style="font-size:1.6rem;font-weight:700">1:1</span>
+        </div>
         <div class="product-body">
           <p class="product-type"><span class="en">Coaching session</span><span class="es">Sesión de coaching</span></p>
           <h3><span class="en">The Problem-Solving Session</span><span class="es">La sesión de resolución de problemas</span></h3>
@@ -501,7 +375,9 @@
 
       <!-- Deck -->
       <div class="product-card" onclick="openPayModal('deck')">
-        <div class="product-thumb grad-main" style="font-size:1rem;padding:0 16px;text-align:center;line-height:1.3">Solve it,<br>Creatively</div>
+        <div class="product-thumb">
+          <span style="font-size:1rem;padding:0 16px;text-align:center;line-height:1.3">Solve it,<br>Creatively</span>
+        </div>
         <div class="product-body">
           <p class="product-type"><span class="en">Card deck</span><span class="es">Baraja de cartas</span></p>
           <h3>Solve it, Creatively</h3>
@@ -515,7 +391,9 @@
 
       <!-- Tea 4 Me -->
       <div class="product-card" onclick="openPayModal('tip')">
-        <div class="product-thumb grad-tip">☕</div>
+        <div class="product-thumb">
+          <span style="font-size:2rem;">☕</span>
+        </div>
         <div class="product-body">
           <p class="product-type"><span class="en">Support</span><span class="es">Apoyo</span></p>
           <h3>Tea 4 Me</h3>
@@ -533,23 +411,16 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="about-grid">
-      <div class="about-visual">
-        <p class="about-quote">
-          <span class="en">"Problem-solving is <strong>a creative act.</strong> It's not about having all the answers — it's about knowing how to ask better questions."</span>
-          <span class="es">"Resolver problemas es <strong>un acto creativo.</strong> No se trata de tener todas las respuestas — sino de saber hacer mejores preguntas."</span>
-        </p>
+      <div class="about-photo">
+        <img src="temi.jpg" alt="Temi Badilla — Founder, The Solving Hub">
       </div>
       <div>
         <p class="section-label">About</p>
-        <h2><span class="en">Built on an unusual path.</span><span class="es">Construido sobre un camino inusual.</span></h2>
-        <p><span class="en">My path ran through advertising, market research, and customer experience. What connected them wasn't the industries — it was the methodology. In each role, the real work began when someone stated a problem and I realized: <strong>that's not the problem.</strong></span><span class="es">Mi camino atravesó publicidad, investigación de mercado y customer experience. Lo que los conectaba no eran las industrias — era la metodología. En cada rol, el trabajo real comenzaba cuando alguien declaraba un problema y yo me daba cuenta: <strong>ese no es el problema.</strong></span></p>
-        <p><span class="en">The Solving Hub exists for both the individual trying to think through a difficult decision, and the organization that keeps solving the wrong thing. The methodology is the same — the entry points differ.</span><span class="es">The Solving Hub existe tanto para el individuo que intenta tomar una decisión difícil, como para la organización que sigue resolviendo lo que no es. La metodología es la misma — los puntos de entrada difieren.</span></p>
-        <p><span class="en">We provide clarity and a map. What you do with it is yours.</span><span class="es">Proveemos claridad y un mapa. Lo que hagas con eso es tuyo.</span></p>
-        <div class="about-links">
-          <a href="https://www.instagram.com/thesolvinghub/" target="_blank" class="about-link">Instagram</a>
-          <a href="https://www.linkedin.com/newsletters/7241190119632744448/" target="_blank" class="about-link">Newsletter</a>
-          <a href="https://problemsolvinghub.kit.com/profile/links" target="_blank" class="about-link">Kit</a>
-        </div>
+        <h2><span class="en">How all started!</span><span class="es">¡Cómo todo comenzó!</span></h2>
+        <p><span class="en">I spent years analysing shopper behavior and mapping customer journeys to keep finding people rarely state the right issue and get stuck in the wrong question.</span><span class="es">He pasado años analizando el comportamiento de los compradores y trazando los recorridos de los clientes, y he descubierto que la gente rara vez plantea el problema correcto y se queda atascada en la pregunta equivocada.</span></p>
+        <p><span class="en">That's what I brought into The Solving Hub.</span><span class="es">Eso es lo que aporto a The Solving Hub.</span></p>
+        <p><span class="en">I'm here for the ones who already know something needs to change — but can't seem to move.</span><span class="es">Estoy aquí para aquellos que ya saben que algo tiene que cambiar, pero parecen incapaces de dar el paso.</span></p>
+        <p><span class="en"><strong>I provide a map. What you do with it is always yours.</strong></span><span class="es"><strong>Yo te proporciono un mapa. Lo que hagas con él depende siempre de ti.</strong></span></p>
       </div>
     </div>
   </section>
@@ -560,8 +431,7 @@
       <div>
         <p class="section-label"><span class="en">Get in touch</span><span class="es">Contacto</span></p>
         <h2><span class="en">Let's figure out what the problem is.</span><span class="es">Descubramos cuál es el problema real.</span></h2>
-        <p class="contact-info"><span class="en">Whether you're an individual or an organization — tell me what you're navigating.</span><span class="es">Ya seas un individuo u una organización — cuéntame qué estás navegando.</span></p>
-        <p class="contact-info"><span class="en">No commitment. Just a conversation.</span><span class="es">Sin compromisos. Solo una conversación.</span></p>
+        <p class="contact-info"><span class="en">Tell me what you're navigating. No commitment — just a conversation.</span><span class="es">Cuéntame qué estás navegando. Sin compromisos — solo una conversación.</span></p>
       </div>
       <form name="contact" method="POST" data-netlify="true" action="/">
         <input type="hidden" name="form-name" value="contact">
@@ -572,13 +442,6 @@
         <div class="field">
           <label>Email</label>
           <input type="email" name="email" required>
-        </div>
-        <div class="field">
-          <label><span class="en">I'm reaching out as...</span><span class="es">Me pongo en contacto como...</span></label>
-          <select name="type">
-            <option value="individual"><span class="en">An individual</span></option>
-            <option value="organization"><span class="en">An organization / team</span></option>
-          </select>
         </div>
         <div class="field">
           <label><span class="en">What are you working through?</span><span class="es">¿Qué estás procesando?</span></label>
@@ -607,12 +470,19 @@
   <footer>
     <p>© 2025 The Solving Hub — Temi Badilla</p>
     <div class="footer-links">
-      <a href="mailto:hello@thesolvinghub.com">hello@thesolvinghub.com</a>
-      <a href="https://www.instagram.com/thesolvinghub/" target="_blank">Instagram</a>
-      <a href="https://problemsolvinghub.kit.com/profile/links" target="_blank">Kit</a>
-      <a href="https://www.linkedin.com/in/temilybadilla/" target="_blank">LinkedIn</a>
-      <a href="https://www.instagram.com/thesolvinghub/" target="_blank">Instagram</a>
-      <a href="https://www.amazon.com/Problem-Solving-Playbook-Creative-Strategies-Challenge-ebook/dp/B0DS81YDMB/" target="_blank">Amazon</a>
+      <a href="mailto:hello@thesolvinghub.com" class="footer-email">hello@thesolvinghub.com</a>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/temilybadilla/" target="_blank" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/thesolvinghub/" target="_blank" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <!-- Amazon -->
+      <a href="https://www.amazon.com/Problem-Solving-Playbook-Creative-Strategies-Challenge-ebook/dp/B0DS81YDMB/" target="_blank" aria-label="Amazon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.047-.872-1.234-1.276-1.813-2.106-1.73 1.765-2.954 2.292-5.197 2.292-2.654 0-4.717-1.638-4.717-4.915 0-2.56 1.387-4.307 3.366-5.155 1.712-.754 4.104-.887 5.933-1.094v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.33c-.259-.058-.548-.266-.472-.66C5.87 2.342 9.039 1.5 11.997 1.5c1.515 0 3.495.403 4.693 1.55 1.518 1.417 1.373 3.307 1.373 5.367v4.861c0 1.462.607 2.103 1.178 2.89.2.282.244.619-.01.828-.637.533-1.771 1.521-2.394 2.075l-.693-.275z"/><path d="M20.945 19.289c-2.547 1.596-6.251 2.444-9.437 2.444-4.464 0-8.483-1.652-11.522-4.398-.238-.215-.026-.509.262-.341 3.282 1.909 7.34 3.056 11.534 3.056 2.829 0 5.939-.586 8.802-1.802.432-.184.794.283.361.041z"/></svg>
+      </a>
     </div>
   </footer>
 
@@ -629,10 +499,10 @@
         es: { type: 'Programa de coaching', title: 'El programa Clarity Compass', price: '€210/mes' },
         options: [
           { id: 'card',    label: 'Credit / Debit card', desc: 'Visa, Mastercard, Amex', url: '#YOUR_CLARITY_CARD_LINK' },
-          { id: 'paypal',  label: 'PayPal',              desc: '',                        url: '#YOUR_PAYPAL_LINK' },
-          { id: 'gpay',    label: 'Google Pay',          desc: '',                        url: '#YOUR_GPAY_LINK' },
-          { id: 'revolut', label: 'Revolut Pay',         desc: '',                        url: '#YOUR_REVOLUT_LINK' },
-          { id: 'wise',    label: 'Wise',                desc: '',                        url: '#YOUR_WISE_LINK' },
+          { id: 'paypal',  label: 'PayPal',  desc: '', url: '#YOUR_PAYPAL_LINK' },
+          { id: 'gpay',    label: 'Google Pay', desc: '', url: '#YOUR_GPAY_LINK' },
+          { id: 'revolut', label: 'Revolut Pay', desc: '', url: '#YOUR_REVOLUT_LINK' },
+          { id: 'wise',    label: 'Wise', desc: '', url: '#YOUR_WISE_LINK' },
         ]
       },
       session: {
@@ -640,39 +510,32 @@
         es: { type: 'Sesión de coaching', title: 'La sesión de resolución de problemas', price: 'Reservar' },
         options: [
           { id: 'card',    label: 'Credit / Debit card', desc: 'via YouCanBook.me', url: 'https://temilybadilla.youcanbook.me/' },
-          { id: 'paypal',  label: 'PayPal',              desc: '',                   url: '#YOUR_PAYPAL_LINK' },
-          { id: 'gpay',    label: 'Google Pay',          desc: '',                   url: '#YOUR_GPAY_LINK' },
-          { id: 'revolut', label: 'Revolut Pay',         desc: '',                   url: '#YOUR_REVOLUT_LINK' },
-          { id: 'wise',    label: 'Wise',                desc: '',                   url: '#YOUR_WISE_LINK' },
-        ]
-      },
-      book: {
-        en: { type: 'Book', title: 'The Problem-Solving Playbook', price: 'On Amazon' },
-        es: { type: 'Libro', title: 'The Problem-Solving Playbook', price: 'En Amazon' },
-        options: [
-          { id: 'card', label: 'Buy on Amazon', desc: 'Kindle & paperback', url: 'https://www.amazon.de/Temily-Badilla-ebook/dp/B0DS81YDMB' },
+          { id: 'paypal',  label: 'PayPal',  desc: '', url: '#YOUR_PAYPAL_LINK' },
+          { id: 'gpay',    label: 'Google Pay', desc: '', url: '#YOUR_GPAY_LINK' },
+          { id: 'revolut', label: 'Revolut Pay', desc: '', url: '#YOUR_REVOLUT_LINK' },
+          { id: 'wise',    label: 'Wise', desc: '', url: '#YOUR_WISE_LINK' },
         ]
       },
       deck: {
         en: { type: 'Card Deck', title: 'Solve it, Creatively', price: '€10' },
         es: { type: 'Baraja de cartas', title: 'Solve it, Creatively', price: '€10' },
         options: [
-          { id: 'card',    label: 'Credit / Debit card', desc: 'via Kit',  url: 'https://problemsolvinghub.kit.com/products/solve-it-creatively-deck-series' },
-          { id: 'paypal',  label: 'PayPal',              desc: '',          url: '#YOUR_PAYPAL_LINK' },
-          { id: 'gpay',    label: 'Google Pay',          desc: '',          url: '#YOUR_GPAY_LINK' },
-          { id: 'revolut', label: 'Revolut Pay',         desc: '',          url: '#YOUR_REVOLUT_LINK' },
-          { id: 'wise',    label: 'Wise',                desc: '',          url: '#YOUR_WISE_LINK' },
+          { id: 'card',    label: 'Credit / Debit card', desc: 'via Kit', url: 'https://problemsolvinghub.kit.com/products/solve-it-creatively-deck-series' },
+          { id: 'paypal',  label: 'PayPal',  desc: '', url: '#YOUR_PAYPAL_LINK' },
+          { id: 'gpay',    label: 'Google Pay', desc: '', url: '#YOUR_GPAY_LINK' },
+          { id: 'revolut', label: 'Revolut Pay', desc: '', url: '#YOUR_REVOLUT_LINK' },
+          { id: 'wise',    label: 'Wise', desc: '', url: '#YOUR_WISE_LINK' },
         ]
       },
       tip: {
         en: { type: 'Support', title: 'Tea 4 Me', price: '€5+' },
         es: { type: 'Apoyo', title: 'Tea 4 Me', price: '€5+' },
         options: [
-          { id: 'card',    label: 'Credit / Debit card', desc: 'via Kit',  url: 'https://problemsolvinghub.kit.com/products/tipme' },
-          { id: 'paypal',  label: 'PayPal',              desc: '',          url: '#YOUR_PAYPAL_LINK' },
-          { id: 'gpay',    label: 'Google Pay',          desc: '',          url: '#YOUR_GPAY_LINK' },
-          { id: 'revolut', label: 'Revolut Pay',         desc: '',          url: '#YOUR_REVOLUT_LINK' },
-          { id: 'wise',    label: 'Wise',                desc: '',          url: '#YOUR_WISE_LINK' },
+          { id: 'card',    label: 'Credit / Debit card', desc: 'via Kit', url: 'https://problemsolvinghub.kit.com/products/tipme' },
+          { id: 'paypal',  label: 'PayPal',  desc: '', url: '#YOUR_PAYPAL_LINK' },
+          { id: 'gpay',    label: 'Google Pay', desc: '', url: '#YOUR_GPAY_LINK' },
+          { id: 'revolut', label: 'Revolut Pay', desc: '', url: '#YOUR_REVOLUT_LINK' },
+          { id: 'wise',    label: 'Wise', desc: '', url: '#YOUR_WISE_LINK' },
         ]
       }
     };
