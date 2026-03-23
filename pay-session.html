@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Problem-Solving Session — The Solving Hub</title>
+  <style>
+    @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+    @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+    @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #5E17EB; --blue: #3533CD; --ink: #0D0D0D;
+      --muted: #6B6F80; --light: #F5F4FF; --bg: #FAFAFA;
+      --white: #FFFFFF; --border: #E8E7F0;
+      --grad: linear-gradient(135deg, #5E17EB 0%, #3533CD 100%);
+    }
+    body { font-family: 'HK Grotesk', sans-serif; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+    nav { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 16px 6vw; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-size: 0.95rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+    .nav-logo span { color: var(--purple); }
+    .nav-back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--purple); }
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 60px 6vw 80px; }
+    .pay-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; width: 100%; align-items: start; }
+    .product-info { position: sticky; top: 40px; }
+    .product-visual { background: var(--grad); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; color: #fff; font-size: 2.5rem; font-weight: 700; }
+    .product-tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
+    .product-info h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; }
+    .product-price-display { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.02em; }
+    .product-price-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
+    .product-desc { font-size: 0.95rem; color: #4A4E5C; line-height: 1.8; font-weight: 300; }
+    .product-includes { margin-top: 24px; }
+    .product-includes p { font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .product-includes ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .product-includes li { font-size: 0.88rem; color: #4A4E5C; display: flex; align-items: flex-start; gap: 10px; }
+    .product-includes li::before { content: ''; display: block; width: 16px; height: 16px; border-radius: 50%; background: var(--light); flex-shrink: 0; margin-top: 2px; background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l3.5 3.5L13 4.5' stroke='%235E17EB' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+    .pay-box { background: var(--white); border-radius: 16px; border: 1.5px solid var(--border); padding: 32px; }
+    .pay-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .pay-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 28px; }
+    .pay-methods { display: flex; flex-direction: column; gap: 12px; }
+    .pay-method { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border: 1.5px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--ink); background: var(--white); cursor: pointer; font-family: 'HK Grotesk', sans-serif; transition: border-color 0.18s, background 0.18s, box-shadow 0.18s; }
+    .pay-method:hover { border-color: var(--purple); background: var(--light); box-shadow: 0 4px 16px rgba(94,23,235,0.1); }
+    .pay-logo { width: 44px; height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; flex-shrink: 0; letter-spacing: 0.02em; }
+    .pay-method-text { flex: 1; }
+    .pay-method-name { font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 2px; }
+    .pay-method-desc { font-size: 0.78rem; color: var(--muted); }
+    .pay-method-arrow { color: var(--muted); font-size: 1rem; }
+    .pay-divider { display: flex; align-items: center; gap: 12px; margin: 4px 0; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .pay-divider::before, .pay-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .pay-secure { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 0.78rem; color: var(--muted); }
+    footer { padding: 20px 6vw; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    footer p, footer a { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--purple); }
+    @media (max-width: 720px) { .pay-layout { grid-template-columns: 1fr; gap: 32px; } .product-info { position: static; } main { padding: 32px 5vw 60px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">The Solving<span>Hub</span></a>
+    <a href="index.html" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back
+    </a>
+  </nav>
+
+  <main>
+    <div class="pay-layout">
+      <div class="product-info">
+        <div class="product-visual">1:1</div>
+        <p class="product-tag">Coaching Session</p>
+        <h1>The Problem-Solving Session</h1>
+        <p class="product-price-display">Book now</p>
+        <p class="product-price-note">Single session. No subscription required.</p>
+        <p class="product-desc">A focused 1:1 session to map your challenge, identify what's really going on underneath the surface, and define your next move with clarity.</p>
+        <div class="product-includes">
+          <p>What's included</p>
+          <ul>
+            <li>60-minute 1:1 video session</li>
+            <li>Challenge mapping using CX methodology</li>
+            <li>Written summary of key insights</li>
+            <li>Concrete next steps defined together</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pay-box">
+        <h2>Choose how to book</h2>
+        <p class="pay-sub">Select your preferred payment method to confirm your session.</p>
+        <div class="pay-methods">
+
+          <a href="https://temilybadilla.youcanbook.me/" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background: var(--grad); color:#fff;">Book</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">Book directly</span>
+              <span class="pay-method-desc">Pick a date and time via YouCanBook.me</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+          <div class="pay-divider">or pay first</div>
+
+          <a href="#YOUR_PAYPAL_LINK" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background:#003087;color:#fff;">PP</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">PayPal</span>
+              <span class="pay-method-desc">Pay securely with your PayPal account</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+          <a href="https://wise.com/pay/r/temib" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background:#9FE870;color:#163300;">Wise</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">Wise</span>
+              <span class="pay-method-desc">Bank transfer — low fees</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+        </div>
+        <div class="pay-secure">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secure payment — your data is protected
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 The Solving Hub — Temi Badilla</p>
+    <a href="mailto:hello@thesolvinghub.com">hello@thesolvinghub.com</a>
+  </footer>
+</body>
+</html>
