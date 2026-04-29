@@ -22,7 +22,7 @@
     .nav-back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
     .nav-back:hover { color: var(--purple); }
     main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 60px 6vw 80px; }
-    .pay-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; width: 100%; align-items: start; }
+    .pay-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; max-width: 1100px; width: 100%; align-items: start; }
     .product-info { position: sticky; top: 40px; }
     .product-visual { background: var(--grad); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; color: #fff; font-size: 2.5rem; font-weight: 700; }
     .product-tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
@@ -84,46 +84,10 @@
         </div>
       </div>
 
-      <div class="pay-box">
-        <h2>Choose how to book</h2>
-        <p class="pay-sub">Select your preferred payment method to confirm your session.</p>
-        <div class="pay-methods">
-
-          <a href="https://temilybadilla.youcanbook.me/" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background: var(--grad); color:#fff;">Book</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">Book directly</span>
-              <span class="pay-method-desc">Pick a date and time via YouCanBook.me</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-          <div class="pay-divider">or pay first</div>
-
-          <a href="#YOUR_PAYPAL_LINK" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#003087;color:#fff;">PP</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">PayPal</span>
-              <span class="pay-method-desc">Pay securely with your PayPal account</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-          <a href="https://wise.com/pay/r/temib" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#9FE870;color:#163300;">Wise</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">Wise</span>
-              <span class="pay-method-desc">Bank transfer — low fees</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-        </div>
-        <div class="pay-secure">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Secure payment — your data is protected
-        </div>
-      </div>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/hello-thesolvinghub/1-1-session?hide_event_type_details=1&background_color=1a2f7a&text_color=f4f3f8&primary_color=2d5be3" style="min-width:320px;height:700px;border-radius:16px;overflow:hidden;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
     </div>
   </main>
 
