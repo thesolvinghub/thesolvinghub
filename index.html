@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Solving Hub</title>
-  <meta name="description" content="Tools, sessions, and strategy for individuals navigating complexity.">
+  <meta name="description" content="Problem-solving tools, sessions, and strategy — for individuals navigating complexity.">
   <style>
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Light.woff2') format('woff2'), url('fonts/HKGrotesk-Light.woff') format('woff'); font-weight: 300; font-display: swap; }
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Regular.woff2') format('woff2'), url('fonts/HKGrotesk-Regular.woff') format('woff'); font-weight: 400; font-display: swap; }
@@ -43,8 +43,7 @@
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--purple); }
-    .lang-toggle { background: none; border: 1.5px solid var(--border); color: var(--muted); font-family: 'HK Grotesk', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; padding: 5px 14px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-    .lang-toggle:hover { border-color: var(--purple); color: var(--purple); }
+
     #hero { min-height: 100vh; background: var(--blue-deep); display: flex; flex-direction: column; justify-content: center; padding: 140px 6vw 100px; position: relative; overflow: hidden; }
     #hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(94,23,235,0.35) 0%, transparent 65%); pointer-events: none; }
     #hero::after { content: ''; position: absolute; bottom: -100px; left: 30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(74,123,255,0.2) 0%, transparent 65%); pointer-events: none; }
@@ -110,15 +109,13 @@
 <body class="en">
 
   <nav>
-    <a href="#" class="nav-logo">The Solving<span>Hub</span></a>
+    <a href="#" class="nav-logo"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:36px;object-fit:contain;display:block;"></a>
     <ul class="nav-links">
       <li><a href="#individuals"><span class="en">For You</span><span class="es">Para Vos</span></a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact"><span class="en">Contact</span><span class="es">Contacto</span></a></li>
     </ul>
-    <button class="lang-toggle" onclick="toggleLang()">
-      <span class="en">ES</span><span class="es">EN</span>
-    </button>
+
   </nav>
 
   <section id="hero">
@@ -146,7 +143,7 @@
 
   <section id="individuals">
     <h2><span class="en">Tools built for thinkers,<br>fixers & decision-makers.</span><span class="es">Herramientas para creadores,<br>ejecutores y tomadores de decisión.</span></h2>
-    <p class="section-sub"><span class="en">Whether you're stuck, in transition, or want sharper thinking, there's something here for you.</span><span class="es">Si te encuentras estancado, en una etapa de transición o simplemente quieres pensar con mayor claridad, aquí encontrarás algo que te puede ayudar.</span></p>
+    <p class="section-sub"><span class="en">Whether you're stuck, in transition, or want sharper thinking — there's something here for you.</span><span class="es">Si te encuentras estancado, en una etapa de transición o simplemente quieres pensar con mayor claridad, aquí encontrarás algo que te puede ayudar.</span></p>
     <div class="products-grid">
 
       <a href="pay-clarity.html" class="product-card">
@@ -167,7 +164,7 @@
         <div class="product-thumb"><span style="font-size:1.6rem;font-weight:700">1:1</span></div>
         <div class="product-body">
           <p class="product-type"><span class="en">Coaching session</span><span class="es">Sesión de coaching</span></p>
-          <h3><span class="en">The Solving Session</span><span class="es">La sesión de resolución</span></h3>
+          <h3><span class="en">The Problem-Solving Session</span><span class="es">La sesión de resolución de problemas</span></h3>
           <p><span class="en">A focused 1:1 to map your challenge, identify what's really going on, and define your next move.</span><span class="es">Una sesión 1:1 para mapear tu desafío, identificar qué está pasando realmente y definir tu próximo paso.</span></p>
           <div class="product-footer">
             <span class="product-cta"><span class="en">Book a session →</span><span class="es">Reservar →</span></span>
@@ -199,7 +196,7 @@
         <h2><span class="en">How all started!</span><span class="es">¡Cómo todo comenzó!</span></h2>
         <p><span class="en">I spent years analysing shopper behavior and mapping customer journeys to keep finding people rarely state the right issue and get stuck in the wrong question.</span><span class="es">He pasado años analizando el comportamiento de los compradores y trazando los recorridos de los clientes, y he descubierto que la gente rara vez plantea el problema correcto y se queda atascada en la pregunta equivocada.</span></p>
         <p><span class="en">That's what I brought into The Solving Hub.</span><span class="es">Eso es lo que aporto a The Solving Hub.</span></p>
-        <p><span class="en">I'm here for the ones who already know something needs to change, but can't seem to move.</span><span class="es">Estoy aquí para aquellos que ya saben que algo tiene que cambiar, pero parecen incapaces de dar el paso.</span></p>
+        <p><span class="en">I'm here for the ones who already know something needs to change — but can't seem to move.</span><span class="es">Estoy aquí para aquellos que ya saben que algo tiene que cambiar, pero parecen incapaces de dar el paso.</span></p>
         <p><span class="en"><strong>I provide a map. What you do with it is always yours.</strong></span><span class="es"><strong>Yo te proporciono un mapa. Lo que hagas con él depende siempre de ti.</strong></span></p>
       </div>
     </div>
@@ -210,10 +207,10 @@
       <div>
         <p class="section-label"><span class="en">Get in touch</span><span class="es">Contacto</span></p>
         <h2><span class="en">Let's figure out what the problem is.</span><span class="es">Descubramos cuál es el problema real.</span></h2>
-        <p class="contact-info"><span class="en">Tell me what you're navigating. No commitment, just a conversation.</span><span class="es">Cuéntame dónde estás navegando ahora. Sin compromisos, solo una conversación.</span></p>
+        <p class="contact-info"><span class="en">Tell me what you're navigating. No commitment — just a conversation.</span><span class="es">Cuéntame qué estás navegando. Sin compromisos — solo una conversación.</span></p>
       </div>
-      <form name="contact" method="POST" data-netlify="true" action="/">
-        <input type="hidden" name="form-name" value="contact">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        
         <div class="field"><label><span class="en">Name</span><span class="es">Nombre</span></label><input type="text" name="name" required></div>
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
         <div class="field"><label><span class="en">What are you working through?</span><span class="es">¿Qué estás procesando?</span></label><textarea name="message" required></textarea></div>
@@ -223,13 +220,13 @@
   </section>
 
   <footer>
-    <p>© 2025 The Solving Hub — Temily Badilla</p>
+    <p>© 2025 The Solving Hub — Temi Badilla</p>
     <div class="footer-links">
-      <a href="/cdn-cgi/l/email-protection#19717c757576596d717c6a76756f70777e716c7b377a7674" class="footer-email"><span class="__cf_email__" data-cfemail="cea6aba2a2a18ebaa6abbda1a2b8a7a0a9a6bbace0ada1a3">[email&#160;protected]</span></a>
-      <a href="https://www.linkedin.com/in/temilybadilla/" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="mailto:hello@thesolvinghub.com" aria-label="Email"><img src="Email.png" alt="Email" style="height:22px;width:auto;object-fit:contain;"></a>
+      <a href="https://www.linkedin.com/in/temilybadilla/" target="_blank" aria-label="LinkedIn"><img src="Linkedin.png" alt="LinkedIn" style="height:22px;width:auto;object-fit:contain;"></a>
       <a href="https://www.instagram.com/thesolvinghub/" target="_blank" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-      <a href="https://www.amazon.com/Problem-Solving-Playbook-Creative-Strategies-Challenge-ebook/dp/B0DS81YDMB/" target="_blank" aria-label="Amazon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.074-1.047-.872-1.234-1.276-1.813-2.106-1.73 1.765-2.954 2.292-5.197 2.292-2.654 0-4.717-1.638-4.717-4.915 0-2.56 1.387-4.307 3.366-5.155 1.712-.754 4.104-.887 5.933-1.094v-.41c0-.753.06-1.642-.384-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.061-.33c-.259-.058-.548-.266-.472-.66C5.87 2.342 9.039 1.5 11.997 1.5c1.515 0 3.495.403 4.693 1.55 1.518 1.417 1.373 3.307 1.373 5.367v4.861c0 1.462.607 2.103 1.178 2.89.2.282.244.619-.01.828-.637.533-1.771 1.521-2.394 2.075l-.693-.275z"/><path d="M20.945 19.289c-2.547 1.596-6.251 2.444-9.437 2.444-4.464 0-8.483-1.652-11.522-4.398-.238-.215-.026-.509.262-.341 3.282 1.909 7.34 3.056 11.534 3.056 2.829 0 5.939-.586 8.802-1.802.432-.184.794.283.361.041z"/></svg></a>
+      <a href="https://www.amazon.com/Problem-Solving-Playbook-Creative-Strategies-Challenge-ebook/dp/B0DS81YDMB/" target="_blank" aria-label="Amazon"><img src="Amazon.png" alt="Amazon" style="height:22px;width:auto;object-fit:contain;"></a>
     </div>
   </footer>
-
-  <script data-cfasync="false" src="/cdn-
+</body>
+</html>

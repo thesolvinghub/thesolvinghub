@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Solving Session — The Solving Hub</title>
+  <title>The Problem-Solving Session — The Solving Hub</title>
   <style>
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
     @font-face { font-family: 'HK Grotesk'; src: url('fonts/HKGrotesk-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
@@ -22,9 +22,9 @@
     .nav-back { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
     .nav-back:hover { color: var(--purple); }
     main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 60px 6vw 80px; }
-    .pay-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; max-width: 1100px; width: 100%; align-items: start; }
+    .pay-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; width: 100%; align-items: start; }
     .product-info { position: sticky; top: 40px; }
-    .product-visual { background: var(--grad); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; color: #fff; font-size: 2.5rem; font-weight: 700; }
+    .product-visual { background: var(--bg); border: 1.5px solid var(--border); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
     .product-tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
     .product-info h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; }
     .product-price-display { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.02em; }
@@ -57,7 +57,7 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="nav-logo">The Solving<span>Hub</span></a>
+    <a href="index.html" class="nav-logo"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:36px;object-fit:contain;display:block;"></a>
     <a href="index.html" class="nav-back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back
@@ -67,15 +67,16 @@
   <main>
     <div class="pay-layout">
       <div class="product-info">
-        <div class="product-visual">1:1</div>
+        <div class="product-visual"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:90px;object-fit:contain;"></div>
         <p class="product-tag">Coaching Session</p>
-        <h1>The Solving Session</h1>
-        <p class="product-price-display">Book now</p>
-        <p class="product-price-note">Single session. Investment: €150</p>
-        <p class="product-desc">60-minute working session, built entirely around where you are and where you need to go. We identify what's blocking you, challenge the assumptions keeping you stuck, and leave with a path that's actually yours.</p>
+        <h1>The Problem-Solving Session</h1>
+        <p class="product-price-display"><a href="https://www.paypal.com/invoice/p/#KA4GLU8DT2CNVLWJ" target="_blank" style="color:var(--purple);text-decoration:underline;font-size:1.1rem;font-weight:700;">Pay via PayPal →</a></p>
+        <p class="product-price-note">Single session. No subscription required.</p>
+        <p class="product-desc">A focused 1:1 session to map your challenge, identify what's really going on underneath the surface, and define your next move with clarity.</p>
         <div class="product-includes">
           <p>What's included</p>
           <ul>
+            <li>60-minute 1:1 video session</li>
             <li>Challenge mapping using CX methodology</li>
             <li>Written summary of key insights</li>
             <li>Concrete next steps defined together</li>
@@ -83,10 +84,46 @@
         </div>
       </div>
 
-      <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/hello-thesolvinghub/1-1-session?hide_event_type_details=1&background_color=f4f3f8&text_color=1a1a2e&primary_color=5e17eb" style="min-width:320px;height:700px;border-radius:16px;overflow:hidden;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      <!-- Calendly inline widget end -->
+      <div class="pay-box">
+        <h2>Choose how to book</h2>
+        <p class="pay-sub">Select your preferred payment method to confirm your session.</p>
+        <div class="pay-methods">
+
+          <a href="https://temilybadilla.youcanbook.me/" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background: var(--grad); color:#fff;">Book</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">Book directly</span>
+              <span class="pay-method-desc">Pick a date and time via YouCanBook.me</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+          <div class="pay-divider">or pay first</div>
+
+          <a href="#YOUR_PAYPAL_LINK" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background:#003087;color:#fff;">PP</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">PayPal</span>
+              <span class="pay-method-desc">Pay securely with your PayPal account</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+          <a href="https://wise.com/pay/r/temib" target="_blank" class="pay-method">
+            <div class="pay-logo" style="background:#9FE870;color:#163300;">Wise</div>
+            <div class="pay-method-text">
+              <span class="pay-method-name">Wise</span>
+              <span class="pay-method-desc">Bank transfer — low fees</span>
+            </div>
+            <span class="pay-method-arrow">→</span>
+          </a>
+
+        </div>
+        <div class="pay-secure">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Secure payment — your data is protected
+        </div>
+      </div>
     </div>
   </main>
 
