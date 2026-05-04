@@ -1,13 +1,31 @@
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
+
 export default async function handler(req, res) {
-  // Only allow POST
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = req.body;
+  let body = req.body;
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); } catch(e) {}
+  }
+
+  const { name, email, message } = body || {};
 
   if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing fields' });
+    return res.status(400).json({ error: 'Missing fields', received: { name, email, message } });
   }
 
   try {
@@ -27,7 +45,7 @@ export default async function handler(req, res) {
     if (data.subscription) {
       return res.status(200).json({ success: true });
     } else {
-      return res.status(400).json({ error: 'Subscription failed', details: data });
+      return res.status(400).json({ error: 'Kit error', details: data });
     }
   } catch (err) {
     return res.status(500).json({ error: 'Server error', details: err.message });
