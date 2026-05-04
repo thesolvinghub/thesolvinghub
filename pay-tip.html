@@ -19,14 +19,12 @@
     main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 60px 6vw 80px; }
     .pay-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; width: 100%; align-items: start; }
     .product-info { position: sticky; top: 40px; }
-    .product-visual { background: var(--grad); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; font-size: 4rem; }
+    .product-visual { background: var(--bg); border-radius: 16px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
     .product-tag { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
     .product-info h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 12px; }
     .product-price-display { font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.02em; }
     .product-price-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
     .product-desc { font-size: 0.95rem; color: #4A4E5C; line-height: 1.8; font-weight: 300; }
-    .tip-amounts { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
-    .tip-amount { padding: 8px 18px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 0.88rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.2s; background: var(--white); }
     .tip-amount:hover, .tip-amount.active { border-color: var(--purple); color: var(--purple); background: var(--light); }
     .pay-box { background: var(--white); border-radius: 16px; border: 1.5px solid var(--border); padding: 32px; }
     .pay-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
@@ -50,7 +48,7 @@
 </head>
 <body>
   <nav>
-    <a href="index.html" class="nav-logo">The Solving<span>Hub</span></a>
+    <a href="index.html" class="nav-logo"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:36px;object-fit:contain;display:block;"></a>
     <a href="index.html" class="nav-back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back
@@ -60,56 +58,18 @@
   <main>
     <div class="pay-layout">
       <div class="product-info">
-        <div class="product-visual">☕</div>
+        <div class="product-visual"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:90px;object-fit:contain;"></div>
         <p class="product-tag">Support</p>
         <h1>Tea 4 Me</h1>
-        <p class="product-price-display">€5+</p>
-        <p class="product-price-note">Any amount is welcome. Thank you.</p>
+        
         <p class="product-desc">Creating tools, sessions and content takes real time and energy. If The Solving Hub has helped you think more clearly, move forward, or just see your challenge differently — this is a way to say thanks.</p>
-        <div class="tip-amounts">
-          <span class="tip-amount active">€5</span>
-          <span class="tip-amount">€10</span>
-          <span class="tip-amount">€15</span>
-          <span class="tip-amount">€20</span>
-        </div>
       </div>
 
       <div class="pay-box">
-        <h2>Send a tip</h2>
-        <p class="pay-sub">Choose how you'd like to support.</p>
-        <div class="pay-methods">
-
-          <a href="https://problemsolvinghub.kit.com/products/tipme" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background: var(--grad); color:#fff;">Kit</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">Pay via Kit</span>
-              <span class="pay-method-desc">Card payment</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-          <div class="pay-divider">or</div>
-
-          <a href="#YOUR_PAYPAL_LINK" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#003087;color:#fff;">PP</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">PayPal</span>
-              <span class="pay-method-desc">Send via PayPal</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-          <a href="https://wise.com/pay/r/temib" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#9FE870;color:#163300;">Wise</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">Wise</span>
-              <span class="pay-method-desc">Send via Wise</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-        </div>
-        <div class="pay-secure">
+        <h2>Tea 4 Me</h2>
+        <p class="pay-sub">If The Solving Hub has helped you think more clearly or move forward — this is a way to say thanks.</p>
+        <a class="convertkit-button" href="https://thesolvinghub.kit.com/products/tipme" data-commerce style="background:linear-gradient(135deg,#5E17EB,#3533CD);color:#fff;padding:14px 28px;border-radius:8px;font-family:'HK Grotesk',sans-serif;font-size:0.95rem;font-weight:700;text-decoration:none;text-align:center;display:block;">Send a tip →</a>
+        <div class="pay-secure" style="margin-top:16px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Secure payment — your data is protected
         </div>
@@ -121,5 +81,6 @@
     <p>© 2025 The Solving Hub — Temi Badilla</p>
     <a href="mailto:hello@thesolvinghub.com">hello@thesolvinghub.com</a>
   </footer>
+  <script src="https://thesolvinghub.kit.com/commerce.js" async defer></script>
 </body>
 </html>
