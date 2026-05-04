@@ -207,47 +207,26 @@
         <h2><span class="en">Let's figure out what the problem is.</span><span class="es">Descubramos cuál es el problema real.</span></h2>
         <p class="contact-info"><span class="en">Tell me what you're navigating. No commitment — just a conversation.</span><span class="es">Cuéntame qué estás navegando. Sin compromisos — solo una conversación.</span></p>
       </div>
-      <form id="contact-form">
-        <div class="field"><label>Name</label><input type="text" id="cf-name" required></div>
-        <div class="field"><label>Email</label><input type="email" id="cf-email" required></div>
-        <div class="field"><label>What are you working through?</label><textarea id="cf-message" required></textarea></div>
-        <button type="submit" class="btn-submit" id="cf-submit">Send message</button>
-        <p id="cf-status" style="margin-top:12px;font-size:0.85rem;display:none;"></p>
-      </form>
-      <script>
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('cf-submit');
-          const status = document.getElementById('cf-status');
-          const name = document.getElementById('cf-name').value;
-          const email = document.getElementById('cf-email').value;
-          const message = document.getElementById('cf-message').value;
-          btn.textContent = 'Sending...';
-          btn.disabled = true;
-          try {
-            const res = await fetch('/api/contact', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ name, email, message })
-            });
-            const data = await res.json();
-            if (data.success) {
-              status.style.color = 'var(--purple)';
-              status.textContent = "Message sent! I'll get back to you soon.";
-              status.style.display = 'block';
-              document.getElementById('contact-form').reset();
-            } else {
-              throw new Error('Failed');
-            }
-          } catch(err) {
-            status.style.color = '#e53e3e';
-            status.textContent = 'Something went wrong. Please email hello@thesolvinghub.com directly.';
-            status.style.display = 'block';
-          }
-          btn.textContent = 'Send message';
-          btn.disabled = false;
-        });
-      </script>
+      <script async data-uid="7057bb6e2e" src="https://thesolvinghub.kit.com/7057bb6e2e/index.js"></script>
+      <style>
+        /* Kit form overrides */
+        #contact .formkit-form { background: transparent !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+        #contact .formkit-form * { font-family: 'HK Grotesk', sans-serif !important; }
+        #contact .formkit-form[data-uid] { max-width: 100% !important; }
+        #contact .formkit-fields { display: flex; flex-direction: column; gap: 16px; }
+        #contact .formkit-field input,
+        #contact .formkit-field textarea { width: 100% !important; background: var(--bg) !important; border: 1.5px solid var(--border) !important; border-radius: 8px !important; padding: 12px 15px !important; color: var(--ink) !important; font-size: 0.93rem !important; font-weight: 400 !important; outline: none !important; box-shadow: none !important; transition: border-color 0.2s !important; }
+        #contact .formkit-field input:focus,
+        #contact .formkit-field textarea:focus { border-color: var(--purple) !important; background: #fff !important; }
+        #contact .formkit-field textarea { min-height: 110px !important; resize: vertical !important; }
+        #contact .formkit-submit { background: linear-gradient(135deg, #5E17EB, #3533CD) !important; color: #fff !important; border: none !important; padding: 13px 32px !important; font-size: 0.88rem !important; font-weight: 700 !important; border-radius: 8px !important; cursor: pointer !important; width: auto !important; align-self: flex-start !important; }
+        #contact .formkit-submit:hover { opacity: 0.9 !important; }
+        #contact .formkit-guarantee,
+        #contact .formkit-powered-by-convertkit-container { display: none !important; }
+        #contact .formkit-alert { font-size: 0.88rem !important; color: var(--purple) !important; background: var(--light) !important; border: 1px solid rgba(94,23,235,0.2) !important; border-radius: 8px !important; padding: 12px !important; }
+        #contact .formkit-form .formkit-header { display: none !important; }
+        #contact .formkit-form .formkit-subheader { display: none !important; }
+      </style>
     </div>
   </section>
 
