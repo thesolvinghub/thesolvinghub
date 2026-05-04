@@ -47,10 +47,9 @@
     /* LEFT — Product info */
     .product-info { position: sticky; top: 40px; }
     .product-visual {
-      background: var(--grad); border-radius: 16px;
-      height: 220px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 28px; color: #fff; font-size: 1.4rem; font-weight: 700;
-      text-align: center; line-height: 1.3; padding: 20px;
+      border-radius: 16px; height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px; overflow: hidden;
     }
     .product-tag {
       font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
@@ -135,7 +134,7 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">The Solving<span>Hub</span></a>
+    <a href="index.html" class="nav-logo"><img src="TSH_Ink.png" alt="The Solving Hub" style="height:36px;object-fit:contain;display:block;"></a>
     <a href="index.html" class="nav-back">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       Back
@@ -147,7 +146,7 @@
 
       <!-- LEFT: Product -->
       <div class="product-info">
-        <div class="product-visual">Clarity<br>Compass</div>
+        <div class="product-visual"><img src="Workbook.png" alt="The Clarity Compass" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
         <p class="product-tag">Coaching Program</p>
         <h1>The Clarity Compass</h1>
         <p class="product-price-display">€210<span style="font-size:1rem;font-weight:400;color:var(--muted)">/month</span></p>
@@ -167,39 +166,16 @@
 
       <!-- RIGHT: Payment -->
       <div class="pay-box">
-        <h2>Choose how to pay</h2>
-        <p class="pay-sub">Select your preferred payment method to continue.</p>
-
-        <div class="pay-methods">
-
-          <a href="#YOUR_PAYPAL_LINK" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#003087;color:#fff;">PP</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">PayPal</span>
-              <span class="pay-method-desc">Pay securely with your PayPal account</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-          <div class="pay-divider">or</div>
-
-          <a href="https://wise.com/pay/r/temib" target="_blank" class="pay-method">
-            <div class="pay-logo" style="background:#9FE870;color:#163300;">Wise</div>
-            <div class="pay-method-text">
-              <span class="pay-method-name">Wise</span>
-              <span class="pay-method-desc">Bank transfer via Wise — low fees</span>
-            </div>
-            <span class="pay-method-arrow">→</span>
-          </a>
-
-        </div>
-
-        <div class="pay-secure">
+        <h2>The Clarity Compass</h2>
+        <p class="pay-sub">A structured monthly coaching program to map your challenge, define your path, and move forward with clarity.</p>
+        <p style="font-size:2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px;">€210<span style="font-size:1rem;font-weight:400;color:var(--muted)">/month</span></p>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:28px;">Cancel anytime. No long-term commitment.</p>
+        <a class="convertkit-button" href="https://thesolvinghub.com/products/the-clarity-compass-program" data-commerce style="background:linear-gradient(135deg,#5E17EB,#3533CD);color:#fff;padding:14px 28px;border-radius:8px;font-family:'HK Grotesk',sans-serif;font-size:0.95rem;font-weight:700;text-decoration:none;text-align:center;display:block;">Buy it now →</a>
+        <div class="pay-secure" style="margin-top:16px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Secure payment — your data is protected
         </div>
       </div>
-
     </div>
   </main>
 
@@ -208,5 +184,6 @@
     <a href="mailto:hello@thesolvinghub.com">hello@thesolvinghub.com</a>
   </footer>
 
+  <script src="https://thesolvinghub.com/commerce.js" async defer></script>
 </body>
 </html>
