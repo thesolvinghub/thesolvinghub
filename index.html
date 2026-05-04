@@ -225,18 +225,13 @@
           btn.textContent = 'Sending...';
           btn.disabled = true;
           try {
-            const res = await fetch('https://api.convertkit.com/v3/forms/7057bb6e2e/subscribe', {
+            const res = await fetch('/api/contact', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                api_key: 'UkXx8GMhl05nUFWS2r2spg',
-                email: email,
-                first_name: name,
-                fields: { message: message }
-              })
+              body: JSON.stringify({ name, email, message })
             });
             const data = await res.json();
-            if (data.subscription) {
+            if (data.success) {
               status.style.color = 'var(--purple)';
               status.textContent = "Message sent! I'll get back to you soon.";
               status.style.display = 'block';
