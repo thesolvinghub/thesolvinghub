@@ -1,53 +1,65 @@
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
+const https = require('https');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  // Manually parse body
+  const body = await new Promise((resolve, reject) => {
+    let data = '';
+    req.on('data', chunk => data += chunk);
+    req.on('end', () => {
+      try { resolve(JSON.parse(data)); }
+      catch(e) { resolve({}); }
+    });
+    req.on('error', reject);
+  });
 
-  let body = req.body;
-  if (typeof body === 'string') {
-    try { body = JSON.parse(body); } catch(e) {}
-  }
-
-  const { name, email, message } = body || {};
+  const { name, email, message } = body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing fields', received: { name, email, message } });
+    return res.status(400).json({ error: 'Missing fields', got: body });
   }
 
-  try {
-    const response = await fetch('https://api.convertkit.com/v3/forms/7057bb6e2e/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_key: process.env.KIT_API_KEY,
-        email: email,
-        first_name: name,
-        fields: { message: message }
-      })
-    });
+  const apiKey = process.env.KIT_API_KEY;
+  const payload = JSON.stringify({
+    api_key: apiKey,
+    email,
+    first_name: name,
+    fields: { message }
+  });
 
-    const data = await response.json();
-
-    if (data.subscription) {
-      return res.status(200).json({ success: true });
-    } else {
-      return res.status(400).json({ error: 'Kit error', details: data });
+  const options = {
+    hostname: 'api.convertkit.com',
+    path: '/v3/forms/7057bb6e2e/subscribe',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(payload)
     }
-  } catch (err) {
-    return res.status(500).json({ error: 'Server error', details: err.message });
+  };
+
+  const result = await new Promise((resolve, reject) => {
+    const request = https.request(options, response => {
+      let data = '';
+      response.on('data', chunk => data += chunk);
+      response.on('end', () => {
+        try { resolve(JSON.parse(data)); }
+        catch(e) { resolve({}); }
+      });
+    });
+    request.on('error', reject);
+    request.write(payload);
+    request.end();
+  });
+
+  if (result.subscription) {
+    return res.status(200).json({ success: true });
+  } else {
+    return res.status(400).json({ error: 'Kit error', details: result });
   }
-}
+};
