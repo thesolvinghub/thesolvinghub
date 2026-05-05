@@ -46,7 +46,7 @@
     #hero { min-height: 100vh; background: var(--blue-deep); display: flex; flex-direction: column; justify-content: center; padding: 140px 6vw 100px; position: relative; overflow: hidden; }
     #hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(94,23,235,0.35) 0%, transparent 65%); pointer-events: none; }
     #hero::after { content: ''; position: absolute; bottom: -100px; left: 30%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(74,123,255,0.2) 0%, transparent 65%); pointer-events: none; }
-    .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+    .hero-inner { max-width: 700px; position: relative; z-index: 2; }
     .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(94,23,235,0.15); border: 1px solid rgba(94,23,235,0.3); border-radius: 20px; padding: 5px 14px; margin-bottom: 28px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--violet-light); font-family: 'DM Mono', monospace; }
     .hero-badge::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--violet-light); }
     h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(2.4rem, 4.5vw, 4.2rem); font-weight: 400; color: #fff; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 24px; }
@@ -54,8 +54,8 @@
     h1 .accent { background: linear-gradient(135deg, #9B6FD0, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.5); max-width: 500px; line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
     .hero-ctas { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
-    .btn-hero { display: inline-block; background: var(--grad); color: #fff; padding: 13px 24px; text-decoration: none; border: none; cursor: pointer; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.01em; border-radius: 8px; transition: opacity 0.2s, transform 0.15s; font-family: 'HK Grotesk', sans-serif; }
-    .btn-hero:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-hero { display: inline-block; background: rgba(255,255,255,0.12); color: #fff; padding: 13px 24px; text-decoration: none; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.02em; border-radius: 4px; transition: all 0.25s; font-family: 'HK Grotesk', sans-serif; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.1em; }
+    .btn-hero:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.5); transform: translateY(-1px); }
     .btn-hero.outline { background: var(--grad); border: none; color: #fff; }
     .btn-hero.outline:hover { opacity: 0.85; transform: translateY(-1px); }
     .hero-newsletter { font-size: 0.83rem; color: rgba(255,255,255,0.35); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
@@ -118,6 +118,10 @@
   </nav>
 
   <section id="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="">
+      <source src="Hero_Video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
       <h1>
         <span class="en">There is always a way. <span class="accent">Let's find yours!</span></span>
@@ -129,8 +133,8 @@
       </p>
       <div class="hero-ctas">
         <a href="#individuals" class="btn-hero"><span class="en">Explore tools</span><span class="es">Ver herramientas</span></a>
-        <a href="pay-session.html" class="btn-hero outline"><span class="en">Coaching Session</span><span class="es">Sesión de coaching</span></a>
-        <a href="pay-tip.html" class="btn-hero outline"><span class="en"> Buy me a Tea</span><span class="es"> Cómprame un Té</span></a>
+        <a href="pay-session.html" class="btn-hero"><span class="en">Coaching Session</span><span class="es">Sesión de coaching</span></a>
+        <a href="pay-tip.html" class="btn-hero"><span class="en"> Buy me a Tea</span><span class="es"> Cómprame un Té</span></a>
       </div>
       <a href="https://www.linkedin.com/newsletters/problem-solving-playbook-7241190119632744448/" target="_blank" class="hero-newsletter">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
